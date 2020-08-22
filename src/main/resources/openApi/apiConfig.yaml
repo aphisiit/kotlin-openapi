@@ -1,0 +1,54 @@
+openapi: 3.0.0
+info:
+  title: Title
+  description: Title
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:8080'
+paths:
+  /api:
+    get:
+      description: Get data sample
+      responses:
+        '200' :
+          description: Simple text
+          content:
+            text/plain:
+              schema:
+                type: string
+
+  /api/hello:
+    get:
+      description: Get data and hello world
+      parameters:
+        - name: name
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Simple text
+          content:
+            text/plain:
+              schema:
+                type: string
+
+  /api/postMapping:
+    post:
+      requestBody:
+        description: Post simple data
+        content:
+          application/json:
+            schema:
+              type: string
+      description: Post data and return body
+
+      responses:
+        '201':
+          description: Simple Body
+          content:
+            text/plain:
+              schema:
+                type: string
+
